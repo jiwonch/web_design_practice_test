@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "맑은 고딕";
+            font-size: 12px;
+            color: #666;
+        }
+
+        ul, li, ol{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        #notice{
+            width: 300px;
+            height: 190px;
+            margin: 20px;
+        }
+
+        #notice ul{
+            height: 32px;
+            background-color: #eee;
+            width: 240px;
+        }
+
+        #notice ul li{
+            float: left;
+            padding-top: 7px;
+            width: 80px;
+            height: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab_list{
+            float: left;
+            width: 280px;
+            height: 150px;
+            border-top: 2px solid #efb300;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .port_back{
+            color: #fff;
+            background-color: #efb300;
+        }
+
+        .tab_sub1{
+            display: block;
+        }
+
+        .tab_sub2, .tab_sub3{
+            display: none;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $("#tab_menu1").click(function(){
+                $(".tab_sub1").show();
+                $(".tab_sub2, .tab_sub3").hide();
+                $("#tab_menu1").addClass("port_back");
+                $("#tab_menu2, #tab_menu3").removeClass("port_back");
+            });
+
+            $("#tab_menu2").click(function(){
+                $(".tab_sub2").show();
+                $(".tab_sub1, .tab_sub3").hide();
+                $("#tab_menu2").addClass("port_back");
+                $("#tab_menu1, #tab_menu3").removeClass("port_back");
+            });
+
+            $("#tab_menu3").click(function(){
+                $(".tab_sub3").show();
+                $(".tab_sub1, .tab_sub2").hide();
+                $("#tab_menu3").addClass("port_back");
+                $("#tab_menu1, #tab_menu2").removeClass("port_back");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="notice">
+        <ul>
+            <li id="tab_menu1" class="port_back">공지사항1</li>
+            <li id="tab_menu2">공지사항2</li>
+            <li id="tab_menu3">공지사항3</li>
+        </ul>
+
+        <div class="tab_list">
+            <div class="tab_sub1">서브1번입니다.<br>서브1번이라고요</div>
+            <div class="tab_sub2">서브2번입니다.<br>서브2번이라고요</div>
+            <div class="tab_sub3">서브3번입니다.<br>서브3번이라고요</div>
+        </div>
+    </div>
+</body>
+</html>
